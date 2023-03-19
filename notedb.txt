@@ -1,0 +1,18 @@
+name database : diciannovemarzo
+
+tabella users = [
+
+    id INT(9) PRIMARY KEY,
+    surname VARCHAR(30) NOT NULL,
+    password VARCHAR(255) NOT NULL
+
+];
+
+tabella notes = [
+
+    id INT(9) PRIMARY KEY,
+    utente_id INT(9) NOT NULL,
+    nota TEXT,
+    FOREIGN KEY (utente_id) REFERENCES users(id)
+
+];
