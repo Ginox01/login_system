@@ -14,12 +14,27 @@
                     "message"=>"No user matches with this username"
                 ];
                 echo json_encode($data);
+                die();
             }else{
                 $user = $state->fetch_array(MYSQLI_ASSOC);
                 if(password_verify($password,$user['password'])){
-                    $data = [
+                    session_start();
+                    $_SESSION['logged'] = true;
+                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['username'] = $user['username'];
 
+                    $data = [
+                        "response"=>1
                     ];
+                    echo json_encode($data);
+
+                }else{
+                    $data = [
+                        "response"=>0,
+                        "message"=>"The password no matches with username"
+                    ];
+                    echo json_encode($data);
+                    die();
                 }
             }
 

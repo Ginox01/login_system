@@ -48,6 +48,7 @@ a:active {
 .forme {
   height: 70vh;
   width: 100vw;
+  transition: 0.8s all ease-in-out;
 }
 
 .forme .row {
@@ -59,11 +60,46 @@ a:active {
   color: rgb(135, 0, 27);
 }
 
+.home {
+  width: 100vw;
+  overflow: hidden;
+  min-height: 70vh;
+}
+
+.close {
+  margin-left: 100%;
+  transition: all 0.8s ease-in-out;
+}
+
+.open {
+  margin: 0%;
+}
+
+#wrap-notes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 90%;
+  margin: auto auto;
+  margin-top: 50px;
+}
+
+.note {
+  padding: 8px;
+  color: black;
+  background-color: whitesmoke;
+}
+
+#wrap-forme-home {
+  position: fixed;
+  inset: 0;
+  top: 80px;
+  z-index: 2;
+}
 
 @media screen and (max-width: 992px) {
   .navbar-nav {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .nav-item {
     margin: 0;

@@ -10,9 +10,13 @@ tabella users = [
 
 tabella notes = [
 
-    id INT(9) PRIMARY KEY,
+    id INT(9) PRIMARY KEY AUTO_INCREMENT,
     utente_id INT(9) NOT NULL,
+    title VARCHAR(20) NOT NULL,
     nota TEXT,
     FOREIGN KEY (utente_id) REFERENCES users(id)
 
 ];
+
+
+// ALTER TABLE `notes` ADD `title` VARCHAR(20) NOT NULL AFTER `utente_id`;

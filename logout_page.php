@@ -15,9 +15,22 @@
   </head>
   <body>
     <?php require "./comp/nav.php"; ?>
-
-    <h1>LOGOUT PAGE IN ALLESTIMENTO</h1>
+    <br>
+    <section class="text-center mt-5">
+      <h3 class="mb-5">VUOI DAVVERO ESEGUIRE IL LOGOUT ??</h3>
+      <button id="btn-return" class="btn btn-outline-dark me-5">RETURN</button> <button id="btn-logout" class="btn btn-dark">LOGOUT</button>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+      document.getElementById('btn-return').addEventListener('click',()=>{
+        window.location.href = "./index.php";
+      })
+
+      document.getElementById('btn-logout').addEventListener('click',()=>{
+        window.location.href = "./php/logout.php";
+      })
+
+    </script>
   </body>
 </html>

@@ -5,11 +5,10 @@ const errMsgPsw = document.getElementById("error-msg-password");
 
 const btnReset = document.getElementById("btn-reset");
 const btnLogin = document.getElementById("btn-login");
-const errMsgFromServer = document.getElementById('error-server');
+const errMsgFromServer = document.getElementById("error-server");
 
 let stepUsername = false;
 let stePassword = false;
-
 
 function checkValidations() {
   checkUsername();
@@ -59,9 +58,8 @@ function checkPassword() {
   }
 }
 
-
-btnReset.addEventListener('click',resetForm)
-function resetForm(){
+btnReset.addEventListener("click", resetForm);
+function resetForm() {
   username.className = "form-control";
   errMsgUsername.innerHTML = "";
   username.value = "";
@@ -71,24 +69,27 @@ function resetForm(){
   errMsgFromServer.innerHTML = "";
 }
 
-
 btnLogin.addEventListener("click", sendDataToServer);
 function sendDataToServer() {
   checkValidations();
-  if(stepUsername == true && stePassword == true){
+  if (stepUsername == true && stePassword == true) {
+    let formData = new FormData();
+    formData.append("username", username.value);
+    formData.append("password", password.value);
 
-    let formData = new FormData;
-    formData.append("username",username.value);
-    formData.append("password",password.value);
-
-    fetch("./php/login.php",{
-      method:"POST",
-      header:{"Content-Type":"application/json"},
-      body:formData
-    }).then(res=>res.json())
-    .then(data=>{
-      console.log(data);
-    })   
+    fetch("./php/login.php", {
+      method: "POST",
+      header: { "Content-Type": "application/json" },
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.response == 0) {
+          errMsgFromServer.innerHTML = data.message;
+        } else if (data.response == 1) {
+          resetForm();
+          window.location.href = "./index.php";
+        }
+      });
   }
-        
 }
