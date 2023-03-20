@@ -2,8 +2,8 @@ name database : diciannovemarzo
 
 tabella users = [
 
-    id INT(9) PRIMARY KEY,
-    surname VARCHAR(30) NOT NULL,
+    id INT(9) PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(30) NOT NULL,
     password VARCHAR(255) NOT NULL
 
 ];

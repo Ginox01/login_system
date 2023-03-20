@@ -56,5 +56,26 @@ a:active {
 }
 
 .error {
-  color: crimson;
+  color: rgb(135, 0, 27);
+}
+
+
+@media screen and (max-width: 992px) {
+  .navbar-nav {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+  .nav-item {
+    margin: 0;
+    padding: 0;
+  }
+  .line-nav {
+    border: none;
+    display: initial;
+    width: 0;
+  }
+
+  .line-nav.active {
+    border: 0;
+  }
 }

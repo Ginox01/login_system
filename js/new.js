@@ -3,9 +3,10 @@ const errMsgUsername = document.getElementById("error-msg-username");
 const psw = document.getElementById("password");
 const errMsgPsw = document.getElementById("error-msg-password");
 const pswConfirm = document.getElementById("password-confirm");
-const errMsgConfirmPsw = document.getElementById("error-confirm-password");
+const errMsgConfirmPsw = document.getElementById("error-msg-confirm-password");
 const btnReset = document.getElementById("btn-reset");
 const btnSubmit = document.getElementById("btn-new-user");
+const errMsgFromServer = document.getElementById('error-server');
 
 let stepUsername = false;
 let stePassword = false;
@@ -61,7 +62,7 @@ function checkPassword() {
 }
 
 function checkConfirmPassword() {
-  if (password.value != pswConfirm.value) {
+  if (password.value != pswConfirm.value || pswConfirm.value < 8) {
     stepConfirmPassword = false;
     pswConfirm.className = "form-control is-invalid";
     errMsgConfirmPsw.innerHTML = "The password doesn't macth";
@@ -72,8 +73,43 @@ function checkConfirmPassword() {
   }
 }
 
+btnReset.addEventListener('click',resetForm)
+function resetForm(){
+  username.className = "form-control";
+  errMsgUsername.innerHTML = "";
+  username.value = "";
+  password.className = "form-control";
+  errMsgPsw.innerHTML = "";
+  password.value = "";
+  pswConfirm.className = "form-control";
+  errMsgConfirmPsw.innerHTML = "";
+  pswConfirm.value = "";
+  errMsgFromServer.innerHTML = "";
+}
+
+
 btnSubmit.addEventListener("click", sendDataToServer);
 function sendDataToServer() {
   checkValidations();
-  //CHECK THE VALIDATIONS+++++++++++++++++++++++++++++++
+  if(stepUsername == true &&
+    stePassword == true &&
+    stepConfirmPassword == true){
+      let formData = new FormData;
+      formData.append('username',username.value);
+      formData.append('password',password.value);
+      fetch("./php/new_user.php",{
+        method:"POST",
+        header:{"Content-Type":"application/json"},
+        body:formData
+      }).then(res=>res.json())
+      .then(data => {
+        if(data.response == 1){
+          errMsgFromServer.innerHTML = "";
+          resetForm();
+          window.location.href = "./index.php";
+        }else{
+          errMsgFromServer.innerHTML = data.message;
+        }
+      })
+    }
 }

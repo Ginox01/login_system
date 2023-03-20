@@ -40,6 +40,7 @@
                             <button type="button" id="btn-new-user" class="btn btn-dark">SIGN UP</button>
                         </div>
                     </div>
+                    <p class="error text-center mt-5" id="error-server"></p>
                 </form>
             </div>
             <p class="text-center">If you alredy have an account , please <a href="./login_page.php">login!</a></p>

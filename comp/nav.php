@@ -1,4 +1,5 @@
 <?php
+  
 
     $pageName = $_SERVER['SCRIPT_NAME'];
     
@@ -17,13 +18,17 @@
           <a class="nav-link <?= strstr($pageName,"index.php") ? "active":""?> " aria-current="page" href="./index.php">Home</a>
           <span class="line-nav <?= strstr($pageName,"index.php") ? "active":""?>"></span>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="<?=  isset($_SESSION['logged']) ? 'display:none':'' ?>" >
           <a class="nav-link <?= strstr($pageName,"login_page.php") ? "active":""?> " href="./login_page.php">Login</a>
           <span class="line-nav <?= strstr($pageName,"login_page.php") ? "active":""?> "></span>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="<?=  isset($_SESSION['logged']) ? 'display:none':'' ?>" >
           <a class="nav-link <?= strstr($pageName,"new_user_page.php") ? "active":""?> " href="./new_user_page.php">New User</a>
           <span class="line-nav <?= strstr($pageName,"new_user_page.php") ? "active":""?> "></span>
+        </li>
+        <li class="nav-item" style="<?=  isset($_SESSION['logged']) ? '':'display:none' ?>">
+          <a class="nav-link <?= strstr($pageName,"logout_page.php") ? "active":""?> " href="./logout_page.php">Logout</a>
+          <span class="line-nav <?= strstr($pageName,"logout_page.php") ? "active":""?> "></span>
         </li>
         
       </ul>
