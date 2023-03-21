@@ -25,15 +25,20 @@
         $req = "INSERT INTO users(username,password)
         VALUES('$username','$has_psw')";
 
-        if($conn->query($req)){
-            session_start();
-            $data = [
-                "response"=>1
-            ];
-            $_SESSION['logged'] = true;
-            $_SESSION['username'] = $username;  
-
-            echo json_encode($data);
+        if($state = $conn->query($req)){
+            $query = "SELECT * FROM users WHERE username='$username'";
+            if($state = $conn->query($query)){
+                $user = $state->fetch_array(MYSQLI_ASSOC);
+                session_start();
+                $data = [
+                    "response"=>1
+                ];
+                $_SESSION['logged'] = true;
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['username'] = $username;
+                echo json_encode($data);
+            }
+            
         }else {
             $data = [
                 "response"=>0,

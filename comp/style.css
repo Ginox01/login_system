@@ -84,25 +84,31 @@ a:active {
   margin-top: 50px;
 }
 
+#wrap-no-notes {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .note {
-  padding:15px;
+  padding: 15px;
   margin-bottom: 50px;
   color: rgb(71, 70, 70);
   background-color: whitesmoke;
-  font-size:80%;
+  font-size: 80%;
   width: 250px;
   box-shadow: 5px 3px 5px 1px rgb(51, 50, 50);
   border-radius: 20px;
-  height:fit-content;
+  height: fit-content;
 }
-
 
 #wrap-forme-home {
   position: fixed;
   inset: 0;
   top: 80px;
   z-index: 2;
-  
 }
 
 .wrap-form {
@@ -110,13 +116,11 @@ a:active {
   padding-top: 10px;
   transition: all 1.2s;
   border-radius: 20px;
-  
-  
 }
 .wrap-title-note {
   width: 100%;
   border-bottom: 2px dotted grey;
-  display:flex;
+  display: flex;
 }
 
 .wrap-form:hover {
@@ -127,19 +131,24 @@ a:active {
 .btn-delete-note {
   cursor: pointer;
   user-select: none;
-  font-size:14px;
+  font-size: 14px;
   font-weight: bold;
   background-color: crimson;
-  color:white;
+  color: white;
   padding: 0 5px;
   padding-bottom: 1px;
   border-radius: 50%;
   transition: all 0.6s;
 }
 
-.btn-delete-note:hover{
+.btn-delete-note:hover {
   background-color: whitesmoke;
-  color:red;
+  color: red;
+}
+
+.btn-delete-note:active {
+  background-color: black;
+  color: crimson;
 }
 
 @media screen and (max-width: 992px) {
@@ -166,7 +175,7 @@ a:active {
   }
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
   #wrap-notes {
     display: flex;
     justify-content: center;
@@ -175,19 +184,17 @@ a:active {
   }
 
   .note {
-    padding:15px;
+    padding: 15px;
     margin-bottom: 80px;
     color: rgb(71, 70, 70);
     background-color: whitesmoke;
-    font-size:80%;
+    font-size: 80%;
     width: 80%;
     box-shadow: 5px 3px 5px 1px rgb(51, 50, 50);
-    min-height:100px;
+    min-height: 100px;
     border-radius: 20px;
   }
 }
 
-
-@media screen and (max-width: 450px){
-   
+@media screen and (max-width: 450px) {
 }

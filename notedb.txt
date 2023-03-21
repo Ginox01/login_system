@@ -18,3 +18,29 @@ tabella notes = [
 
 ];
 
+
+SCHEMA NOTA => [
+
+        <div class="note">
+            <div class="wrap-title-note">
+                <div style="width:90%"><h6 class="text-center">NOTA QUATTRO</h6></div>
+                <div style="width:5%"><span class="btn-delete-note">X</span></div>
+            </div>
+        </div>
+
+
+]
+
+
+
+<div class="note">
+        <div class="wrap-title-note">
+          <div style="width:90%"><h6 class="text-center">NOTA UNO</h6></div>
+          <div style="width:5%"><span class="btn-delete-note">X</span></div>
+        </div>
+        <p style="padding:5px">Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        </p>
+</div>

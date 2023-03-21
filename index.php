@@ -4,14 +4,7 @@
         header("location: ./login_page.php");
     }
 
-    require_once("data.php");
-    $username = $_SESSION['username'];
-    $req = "SELECT id FROM users WHERE username='$username'";
-
-    if($state = $conn->)
-
-    
-
+    $id =  $_SESSION['id'];
     
 ?>
 
@@ -38,7 +31,7 @@
       <button id="btn-open-new-note-form" class="btn btn-dark">NUOVA NOTA</button>
     </div>
 
-    <input type="hidden" id="user" value="<?=$username?>">
+    <input type="hidden" id="user-id" value="<?=$id?>">
 
     <section id="wrap-forme-home" class="forme close">
         <div class="row d-flex justify-content-center align-items-center">
@@ -61,44 +54,12 @@
         </div>
     </section>
 
-    <section id="wrap-notes">
-      
-      <div class="note">
-        <div class="wrap-title-note">
-          <div style="width:90%"><h6 class="text-center">NOTA UNO</h6></div>
-          <div style="width:5%"><span class="btn-delete-note">X</span></div>
-        </div>
-        <p style="padding:5px">Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
-        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
-        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
-        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
-        </p>
-      </div>
+    <section id="wrap-notes"></section>
+    <section id="wrap-no-notes" style="display:none">
 
-      <div class="note">
-        <div class="wrap-title-note">
-          <div style="width:90%"><h6 class="text-center">NOTA DUE</h6></div>
-          <div style="width:5%"><span class="btn-delete-note">X</span></div>
-        </div>
-        <p style="padding:5px">Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
-        Ciaoù  tutti io sono il contenuto della prima nota! come state tutto bene spero!
-        </p>
+      <div class="alert alert-light" role="alert">
+        You have no notes , create one right away!
       </div>
-
-      <div class="note">
-        <div class="wrap-title-note">
-          <div style="width:90%"><h6 class="text-center">NOTA TRE</h6></div>
-          <div style="width:5%"><span class="btn-delete-note">X</span></div>
-        </div>
-      </div>
-
-      <div class="note">
-        <div class="wrap-title-note">
-          <div style="width:90%"><h6 class="text-center">ANC CNAD TPIFJ</h6></div>
-          <div style="width:5%"><span class="btn-delete-note">X</span></div>
-        </div>
-      </div>
-
 
     </section>
     </section>
