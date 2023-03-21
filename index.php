@@ -4,7 +4,13 @@
         header("location: ./login_page.php");
     }
 
+    require_once("data.php");
+    $username = $_SESSION['username'];
+    $req = "SELECT id FROM users WHERE username='$username'";
 
+    if($state = $conn->)
+
+    
 
     
 ?>
@@ -31,17 +37,22 @@
     <div class="text-end me-5">
       <button id="btn-open-new-note-form" class="btn btn-dark">NUOVA NOTA</button>
     </div>
+
+    <input type="hidden" id="user" value="<?=$username?>">
+
     <section id="wrap-forme-home" class="forme close">
         <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-sm-6">
+          <div class="col-6 wrap-form mx-1">
           <form method="post" class="mb-2">
             <input class="form-control mb-2" type="text" id="title" placeholder="Insert Title*">
-            <textarea style="height:300px;resize:none" placeholder="Insert content.." class="form-control" aria-label="With textarea"></textarea>
+            <textarea style="height:300px;resize:none" id="content" placeholder="Insert content.." class="form-control" aria-label="With textarea"></textarea>
             <div class="row d-flex justify-content-between mt-4">
-              <div class="col-3">
-                <button type="button" class="btn btn-outline-dark" id="btn-return">RETURN</button>
+            <div class="error text-center"><p id="error-msg-title"></p></div>
+              <div class="mb-2 error text-center"><p id="error-msg-content"></p></div>
+              <div class="col-sm-3 mb-3">
+                <button type="button" class="btn btn-dark" id="btn-return">RETURN</button>
               </div>
-              <div class="col-5">
+              <div class="col-sm-5">
                 <button type="button" class="btn btn-dark" id="btn-new-note">ADD NOTE</button>
               </div>
             </div>
@@ -49,10 +60,46 @@
           </div>
         </div>
     </section>
+
     <section id="wrap-notes">
+      
       <div class="note">
-        
+        <div class="wrap-title-note">
+          <div style="width:90%"><h6 class="text-center">NOTA UNO</h6></div>
+          <div style="width:5%"><span class="btn-delete-note">X</span></div>
+        </div>
+        <p style="padding:5px">Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        </p>
       </div>
+
+      <div class="note">
+        <div class="wrap-title-note">
+          <div style="width:90%"><h6 class="text-center">NOTA DUE</h6></div>
+          <div style="width:5%"><span class="btn-delete-note">X</span></div>
+        </div>
+        <p style="padding:5px">Ciao  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        Ciaoù  tutti io sono il contenuto della prima nota! come state tutto bene spero!
+        </p>
+      </div>
+
+      <div class="note">
+        <div class="wrap-title-note">
+          <div style="width:90%"><h6 class="text-center">NOTA TRE</h6></div>
+          <div style="width:5%"><span class="btn-delete-note">X</span></div>
+        </div>
+      </div>
+
+      <div class="note">
+        <div class="wrap-title-note">
+          <div style="width:90%"><h6 class="text-center">ANC CNAD TPIFJ</h6></div>
+          <div style="width:5%"><span class="btn-delete-note">X</span></div>
+        </div>
+      </div>
+
+
     </section>
     </section>
   

@@ -18,5 +18,3 @@ tabella notes = [
 
 ];
 
-
-// ALTER TABLE `notes` ADD `title` VARCHAR(20) NOT NULL AFTER `utente_id`;

@@ -31,7 +31,7 @@
                 "response"=>1
             ];
             $_SESSION['logged'] = true;
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $username;  
 
             echo json_encode($data);
         }else {
