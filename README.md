@@ -9,5 +9,5 @@ Once that the form has compiled, you will notice that the note displays in your 
 
 Questo progetto è una semplice app per i promemoria, create esclusivamente con PHP CSS Javascript e SQL.
 
-Per creare le note in primis devi resgistrati al sito, una volta registrato potrai accedere alla home dov'è collocato il form per creare le note.
-Una volta compilato il form, la nota apparirà nella tua Home.
+Per creare le note in primis devi registrarti al sito, una volta registrato potrai accedere alla home dov'è collocato il form per creare le note.
+Una volta compilato il form, la nota apparirà nella tua home.
