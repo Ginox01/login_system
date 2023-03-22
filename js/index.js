@@ -30,7 +30,7 @@ function closeForm() {
 
 //For refresh the page
 function clearNotes() {
-  wrapNoNotes.innerHTML = "";
+  wrapNotes.innerHTML = "";
 }
 
 //GET THE NOTES
@@ -48,9 +48,11 @@ function generateNotes() {
     .then((data) => {
       console.log(data);
       if (data.response == "empty") {
+        wrapNotes.style.display = "none";
         wrapNoNotes.style.display = "";
         return;
       }
+      wrapNotes.style.display = "";
       wrapNoNotes.style.display = "none";
       let notes = "";
       data.map((note) => {
@@ -60,7 +62,7 @@ function generateNotes() {
                     <div style="width:90%"><h6 class="text-center">${note.title}</h6></div>
                     <div style="width:5%"><span  data-id="${note.id}" class="btn-delete-note">X</span></div>
                 </div>
-                <p style="padding:5px">${note.nota}</p>
+                <p style="padding:5px;display:fit">${note.nota}</p>
             </div>
         `;
         notes += wrapNote;
@@ -148,5 +150,24 @@ function createNewNote() {
 }
 
 function deleteNote(e) {
-  console.log(e.target.dataset.id);
+  let id = e.target.dataset.id;
+  let formData = new FormData;
+
+  formData.append('id',id);
+
+  fetch("./php/delete_note.php",{
+    method:"POST",
+    header:{"Content-Type":"application/json"},
+    body:formData
+  }).then(res=>res.json())
+  .then(data=>{
+    console.log(data);
+    if(data.response == 1){
+      clearNotes();
+      generateNotes();
+    }else if(data.response == 0){
+      alert(data.message);
+    }
+  })
+
 }

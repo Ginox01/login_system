@@ -55,10 +55,11 @@
     </section>
 
     <section id="wrap-notes"></section>
-    <section id="wrap-no-notes" style="display:none">
-
-      <div class="alert alert-light" role="alert">
-        You have no notes , create one right away!
+    <section id="wrap-no-notes" class="row" style="display:none">
+      <div class="col-sm-6 mx-2">
+        <div class="alert alert-light" role="alert">
+          You have no notes , create one right away!
+        </div>
       </div>
 
     </section>
